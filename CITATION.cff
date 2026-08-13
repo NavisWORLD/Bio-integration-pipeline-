@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite this repository and the foundational CST deposit when using CST-specific architecture or terminology."
+title: "COSMOS Bio/CNS Integration Pipeline"
+type: software
+authors:
+  - family-names: Davis
+    given-names: Cory Shane
+version: 0.1.0
+date-released: 2026-08-12
+license: Apache-2.0
+repository-code: "https://github.com/NavisWORLD/Bio-integration-pipeline-"
+url: "https://github.com/NavisWORLD/Bio-integration-pipeline-"
+preferred-citation:
+  type: generic
+  title: "The 12-Dimensional Cosmic Synapse Theory: Audio-Driven Deterministic Cosmological Simulation with Adaptive Memory and Light Particle Mapping"
+  authors:
+    - family-names: Davis
+      given-names: Cory Shane
+  year: 2024
+  doi: "10.5281/zenodo.17574447"
