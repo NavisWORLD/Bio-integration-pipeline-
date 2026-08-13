@@ -1,12 +1,21 @@
 # COSMOS Bio/CNS Integration Pipeline
 
+[![CI](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml/badge.svg)](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml)
+
 A local-first, open-source Python library for connecting human-facing sensor adapters to a compact adaptive CNS state, persistent event ledger, and optional cloud heartbeat bridge.
 
 **Author:** Cory Shane Davis  
 **Foundational CST research DOI:** https://doi.org/10.5281/zenodo.17574447  
-**Code license:** Apache-2.0
+**Code license:** Apache-2.0  
+**Repository-authored docs/paper license:** CC BY 4.0
 
-> This repository is an engineering toolkit. It is not a medical device, diagnostic system, consciousness detector, or proof that a biometric measurement equals an emotion.
+> This repository is an engineering and research toolkit. It is not a medical device, diagnostic system, consciousness detector, or proof that a biometric measurement equals an emotion.
+
+## Release status
+
+**v0.1.0 reference implementation — release-ready for research, education, prototyping, and integration testing.**
+
+The repository includes automated CI across Python 3.10, 3.11, and 3.12, distribution-build validation, unit tests, CLI smoke tests, explicit software/documentation licensing, schemas, examples, manuals, security guidance, and citation metadata. See `docs/RELEASE_READINESS.md` for the audit scope and the important distinction between engineering release readiness and formal medical/regulatory/security certification.
 
 ## Why this exists
 
@@ -48,6 +57,8 @@ This repository extracts that pattern into a library that other projects can imp
 - JSONL offline sink;
 - optional Azure IoT Hub sink;
 - deterministic mock cardiac adapter for demos and CI;
+- language-neutral localhost JSON bridge for non-Python hosts;
+- JSON schemas for observation and heartbeat interchange;
 - CLI, examples, tests, engineering manual, teacher manual, distribution guide, and companion publication manuscript.
 
 ## Install
@@ -60,13 +71,13 @@ cd Bio-integration-pipeline-
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-pip install -e .
+python -m pip install -e .
 ```
 
 Optional Azure support:
 
 ```bash
-pip install -e ".[azure]"
+python -m pip install -e ".[azure]"
 ```
 
 ## 30-second local demo
@@ -120,6 +131,8 @@ class MySensor:
 
 The adapter should report observations, not interpretations. A heart-rate adapter reports heart rate and quality; it should not declare a user's emotion or diagnosis.
 
+See `docs/ADAPTER_AUTHORING.md` for the production adapter checklist.
+
 ## Local-first design
 
 The CNS loop works with no cloud service. Cloud bridges are sinks and reconciliation extensions, not prerequisites for local operation.
@@ -144,10 +157,13 @@ See `docs/RESEARCH_BOUNDARIES.md`.
 src/cosmos_bio_cns/       reusable Python library
 examples/                 minimal integration examples
 tests/                    stdlib unittest suite
+schemas/                  language-neutral JSON contracts
 docs/ARCHITECTURE.md      full system design
 docs/AZURE_HEARTBEAT.md   storage/reconciliation pipeline
+docs/INTEROPERABILITY.md  cross-language local bridge
 docs/DISTRIBUTION.md      redistribution + packaging guide
 docs/TEACHER_MANUAL.md    course/labs for this section
+docs/RELEASE_READINESS.md audit/certification scope
 paper/                    companion paper + foundational citation
 ```
 
@@ -155,15 +171,24 @@ paper/                    companion paper + foundational citation
 
 ```bash
 python -m unittest discover -s tests -v
+python -m compileall -q src examples tests
 ```
+
+GitHub Actions runs the supported Python matrix, CLI smoke test, package build, and `twine check` automatically.
 
 ## Citation
 
 Please cite the software repository and the foundational CST deposit. See `CITATION.cff` and `paper/FOUNDATIONAL_PUBLICATION.md`.
 
+The foundational DOI is cited as research lineage; this repository does not claim that DOI was issued specifically for this software package.
+
 ## License and redistribution
 
-Code is licensed under Apache License 2.0. Keep the license and notices with redistributed copies. Documentation and paper text in this repository may be redistributed with attribution under the terms stated in each document. See `docs/DISTRIBUTION.md`.
+Source code and software configuration are licensed under Apache License 2.0. Repository-authored documentation and companion-paper text are licensed under CC BY 4.0 unless a file states otherwise. Keep applicable license, notice, attribution, and modification information with redistributed copies.
+
+See `LICENSE`, `LICENSE-DOCS.md`, `NOTICE`, and `docs/DISTRIBUTION.md`.
+
+Open-source software rights do not grant permission to redistribute private human biosignal data. Consent, privacy, retention, research approval, and applicable law remain separate obligations.
 
 ## Contributing
 
