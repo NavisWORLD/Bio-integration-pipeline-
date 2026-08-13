@@ -87,7 +87,11 @@ This statement means that the repository contains the implementation, interfaces
 7. CLI demo execution;
 8. event-ledger verification through the CLI;
 9. source/wheel distribution build;
-10. `twine check` metadata validation.
+10. `twine check` metadata validation;
+11. direct inspection of the built wheel for `py.typed` and both JSON schemas;
+12. installation of the built wheel followed by packaged-schema load tests.
+
+The workflow's third-party GitHub Actions are pinned to exact release commit SHAs, while Dependabot is configured to surface dependency updates for review.
 
 A green CI result verifies those automated checks for the commit on which it ran. It does not substitute for independent scientific, clinical, penetration, privacy, or regulatory review.
 
@@ -99,7 +103,7 @@ A stricter public-consumer audit identified and corrected three material pre-rel
 2. **Consent:** `ConsentScope.bio_processing` previously existed as metadata without affecting fusion. The fusion engine now rejects observations when that flag is false.
 3. **Baseline contamination:** adaptive baselines previously keyed only by subject and channel. They are now isolated by subject, sensor, channel, and unit so identically named streams cannot mix incompatible devices or units.
 
-The same pass also made remote binding opt-in, packaged the schemas, added onboarding/API/release documentation, dependency automation, and contribution templates.
+The same pass also made remote binding opt-in, packaged the schemas, added onboarding/API/release documentation, dependency automation, contribution templates, exact action pinning, and wheel-payload verification.
 
 ## Claim discipline
 
