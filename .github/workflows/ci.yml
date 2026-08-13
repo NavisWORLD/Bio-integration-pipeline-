@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -50,10 +50,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
@@ -62,3 +62,33 @@ jobs:
           python -m pip install --upgrade pip build twine
           python -m build
           python -m twine check dist/*
+
+      - name: Verify wheel payload
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          wheels = list(Path("dist").glob("*.whl"))
+          assert len(wheels) == 1, f"expected one wheel, got {wheels}"
+          required = {
+              "cosmos_bio_cns/py.typed",
+              "cosmos_bio_cns/schemas/bio_observation.schema.json",
+              "cosmos_bio_cns/schemas/heartbeat.schema.json",
+          }
+          with zipfile.ZipFile(wheels[0]) as archive:
+              members = set(archive.namelist())
+          missing = required - members
+          assert not missing, f"wheel missing required package data: {sorted(missing)}"
+          print("wheel payload verified")
+          PY
+
+      - name: Install built wheel and load packaged schemas
+        run: |
+          python -m pip install --force-reinstall dist/*.whl
+          python - <<'PY'
+          from cosmos_bio_cns import load_schema
+          assert load_schema("bio_observation")["title"] == "COSMOS Bio Observation"
+          assert load_schema("heartbeat")["title"] == "COSMOS Heartbeat Record"
+          print("installed wheel schema load verified")
+          PY
