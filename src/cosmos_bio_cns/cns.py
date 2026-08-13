@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-import math
 from cosmos_bio_cns.models import CNSState, FusionFrame
+from cosmos_bio_cns.synapse import synaptic_step
 
 
 @dataclass
@@ -48,16 +48,12 @@ class LocalCNS:
                 confidence=0.0,
             )
 
-        inputs = [math.tanh(f.baseline_delta) * f.quality for f in frame.features]
-        new_state: list[float] = []
-        for i in range(self.dimensions):
-            source = inputs[i % len(inputs)]
-            phase = math.sin((i + 1) * 0.61803398875)
-            drive = source * phase
-            value = self.leak * self.state[i] + self.input_gain * drive
-            new_state.append(max(-1.0, min(1.0, value)))
-
-        self.state = tuple(new_state)
+        self.state = synaptic_step(
+            self.state,
+            ((feature.baseline_delta, feature.quality) for feature in frame.features),
+            leak=self.leak,
+            input_gain=self.input_gain,
+        )
         self.revision += 1
         return CNSState(
             vector=self.state,
