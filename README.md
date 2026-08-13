@@ -94,6 +94,16 @@ finally:
     store.close()
 ```
 
+## Use it from any language
+
+Start the local JSON bridge:
+
+```bash
+cosmos-bio-cns serve --host 127.0.0.1 --port 8765
+```
+
+Then POST neutral observations to `http://127.0.0.1:8765/v1/observe` from Swift, Kotlin, C++, Rust, JavaScript, Python, or any other HTTP client. See `docs/INTEROPERABILITY.md` and `schemas/`.
+
 ## Add your own sensor
 
 Implement three methods:

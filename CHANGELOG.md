@@ -13,3 +13,4 @@ Initial public extraction of the COSMOS/CST bio/CNS integration pipeline:
 - heartbeat records;
 - local JSONL and optional Azure IoT sink;
 - CLI, tests, examples, architecture manual, teacher manual, distribution guide, and companion manuscript.
+- language-neutral localhost HTTP bridge, push adapter, multimodal example, and JSON schemas.

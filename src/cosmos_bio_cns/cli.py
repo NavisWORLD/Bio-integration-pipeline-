@@ -38,6 +38,19 @@ def cmd_verify(args: argparse.Namespace) -> int:
     return 0 if valid else 1
 
 
+def cmd_serve(args: argparse.Namespace) -> int:
+    from cosmos_bio_cns.server import LocalCNSServer
+
+    server = LocalCNSServer(host=args.host, port=args.port, db=args.db)
+    print(f"COSMOS Bio/CNS local bridge listening on http://{args.host}:{args.port}")
+    print("POST /v1/observe | GET /v1/state | GET /health | GET /v1/ledger/verify")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        server.close()
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="cosmos-bio-cns")
     sub = parser.add_subparsers(required=True)
@@ -48,6 +61,11 @@ def main() -> int:
     verify = sub.add_parser("verify-ledger", help="verify append-only event hash chain")
     verify.add_argument("--db", default="cosmos_bio_cns.sqlite3")
     verify.set_defaults(func=cmd_verify)
+    serve = sub.add_parser("serve", help="serve the language-neutral local JSON CNS bridge")
+    serve.add_argument("--host", default="127.0.0.1")
+    serve.add_argument("--port", type=int, default=8765)
+    serve.add_argument("--db", default="cosmos_bio_cns.sqlite3")
+    serve.set_defaults(func=cmd_serve)
     args = parser.parse_args()
     return int(args.func(args))
 

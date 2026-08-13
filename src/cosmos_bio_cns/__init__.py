@@ -1,6 +1,7 @@
 """COSMOS Bio/CNS Integration Pipeline."""
 
 from cosmos_bio_cns.adapters.base import BioAdapter
+from cosmos_bio_cns.adapters.push import PushBioAdapter
 from cosmos_bio_cns.baseline import RunningBaseline
 from cosmos_bio_cns.cns import LocalCNS, OrganStatus
 from cosmos_bio_cns.fusion import BioFusionEngine
@@ -14,6 +15,7 @@ __all__ = [
     "BioFeature",
     "BioFusionEngine",
     "BioObservation",
+    "PushBioAdapter",
     "CNSState",
     "ConsentScope",
     "FusionFrame",
