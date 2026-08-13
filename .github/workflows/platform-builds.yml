@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  RELEASE_TAG: v0.1.0
+  RELEASE_TAG: v0.2.0
 
 jobs:
   windows:
@@ -201,10 +201,29 @@ jobs:
           path: dist/*
           if-no-files-found: error
 
+  sdk-bundle:
+    name: Cross-language SDK source bundle
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Package SDKs
+        run: |
+          mkdir -p release
+          tar -czf release/COSMOS-Synapse-SDKs-v0.2.0.tar.gz sdk docs/CROSS_LANGUAGE_SDK.md docs/INTEROPERABILITY.md LICENSE NOTICE
+          test -s release/COSMOS-Synapse-SDKs-v0.2.0.tar.gz
+      - name: Upload SDK bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: release-sdk
+          path: release/COSMOS-Synapse-SDKs-v0.2.0.tar.gz
+          if-no-files-found: error
+
   release:
     name: Package GitHub Release
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: [windows, macos, android, ios, python-package]
+    needs: [windows, macos, android, ios, python-package, sdk-bundle]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -222,7 +241,7 @@ jobs:
           sha256sum * > SHA256SUMS.txt
           cat SHA256SUMS.txt
 
-      - name: Create or refresh v0.1.0 release
+      - name: Create or refresh v0.2.0 release
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -230,8 +249,8 @@ jobs:
           if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release create "$RELEASE_TAG" \
               --target "$GITHUB_SHA" \
-              --title "COSMOS Bio/CNS v0.1.0" \
-              --notes "Verified v0.1.0 platform release: Windows installer + portable EXE, macOS Apple Silicon DMG + app bundle, Android APK, iOS Simulator app build, Python wheel/source package, and SHA-256 checksums. iOS physical-device/App Store signing and macOS notarization require the distributor's Apple credentials."
+              --title "COSMOS Bio/CNS v0.2.0" \
+              --notes "Verified v0.2.0 release: Windows installer + portable EXE, macOS Apple Silicon DMG + app bundle, Android APK, iOS Simulator app build, Python wheel/source package, cross-language Synapse SDK bundle, and SHA-256 checksums. Native synaptic parity is validated separately across Python, Rust, C++, C ABI, Go, JavaScript, Java/JVM, C#/.NET, and Swift. iOS physical-device/App Store signing and macOS notarization require distributor Apple credentials."
           fi
           mapfile -d '' files < <(find release-bundle -type f -print0)
           gh release upload "$RELEASE_TAG" "${files[@]}" --clobber
