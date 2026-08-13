@@ -9,23 +9,13 @@ from cosmos_bio_cns.models import BioFeature, BioObservation, CNSState, ConsentS
 from cosmos_bio_cns.persistence import SQLiteEventStore
 from cosmos_bio_cns.runtime import BioCNSRuntime
 from cosmos_bio_cns.schema import load_schema
+from cosmos_bio_cns.synapse import DEFAULT_DIMENSIONS, DEFAULT_INPUT_GAIN, DEFAULT_LEAK, PHASE_STEP, SynapticFeature, cosmos_12d_step, synaptic_step
 
 __all__ = [
-    "BioAdapter",
-    "BioCNSRuntime",
-    "BioFeature",
-    "BioFusionEngine",
-    "BioObservation",
-    "PushBioAdapter",
-    "CNSState",
-    "ConsentScope",
-    "FusionFrame",
-    "HeartbeatRecord",
-    "LocalCNS",
-    "OrganStatus",
-    "RunningBaseline",
-    "SQLiteEventStore",
-    "load_schema",
+    "BioAdapter", "BioCNSRuntime", "BioFeature", "BioFusionEngine", "BioObservation", "PushBioAdapter",
+    "CNSState", "ConsentScope", "FusionFrame", "HeartbeatRecord", "LocalCNS", "OrganStatus", "RunningBaseline",
+    "SQLiteEventStore", "load_schema", "SynapticFeature", "synaptic_step", "cosmos_12d_step", "PHASE_STEP",
+    "DEFAULT_DIMENSIONS", "DEFAULT_LEAK", "DEFAULT_INPUT_GAIN",
 ]
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

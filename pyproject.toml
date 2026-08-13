@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cosmos-bio-cns"
-version = "0.1.0"
-description = "Local-first bio-signal to CNS integration toolkit derived from the COSMOS/CST engineering lineage."
+version = "0.2.0"
+description = "Local-first bio-signal to CNS integration toolkit with cross-language synaptic SDKs derived from the COSMOS/CST engineering lineage."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 authors = [{name = "Cory Shane Davis"}]
-keywords = ["biosignals", "multimodal", "cns", "adaptive-state", "edge-ai", "cosmos", "cst"]
+keywords = ["biosignals", "multimodal", "cns", "adaptive-state", "edge-ai", "cosmos", "cst", "rust", "cpp", "ffi"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Programming Language :: Python :: 3",
