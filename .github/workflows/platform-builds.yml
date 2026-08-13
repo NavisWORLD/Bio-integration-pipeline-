@@ -71,21 +71,22 @@ jobs:
           python -m pip install -e .
           python -c "import tkinter; import cosmos_bio_cns; print(cosmos_bio_cns.__version__)"
           pyinstaller --noconfirm --clean --windowed --name "COSMOS Bio CNS" --collect-data cosmos_bio_cns apps/desktop/main.py
+          test "$(uname -m)" = "arm64"
           codesign --force --deep --sign - "dist/COSMOS Bio CNS.app"
           codesign --verify --deep --strict "dist/COSMOS Bio CNS.app"
           mkdir -p release
-          ditto -c -k --sequesterRsrc --keepParent "dist/COSMOS Bio CNS.app" "release/COSMOS-Bio-CNS-macOS-x64.app.zip"
-          hdiutil create -volname "COSMOS Bio CNS" -srcfolder "dist/COSMOS Bio CNS.app" -ov -format UDZO "release/COSMOS-Bio-CNS-macOS-x64.dmg"
-          test -s "release/COSMOS-Bio-CNS-macOS-x64.dmg"
-          test -s "release/COSMOS-Bio-CNS-macOS-x64.app.zip"
+          ditto -c -k --sequesterRsrc --keepParent "dist/COSMOS Bio CNS.app" "release/COSMOS-Bio-CNS-macOS-arm64.app.zip"
+          hdiutil create -volname "COSMOS Bio CNS" -srcfolder "dist/COSMOS Bio CNS.app" -ov -format UDZO "release/COSMOS-Bio-CNS-macOS-arm64.dmg"
+          test -s "release/COSMOS-Bio-CNS-macOS-arm64.dmg"
+          test -s "release/COSMOS-Bio-CNS-macOS-arm64.app.zip"
 
       - name: Upload macOS binaries
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: release-macos
           path: |
-            release/COSMOS-Bio-CNS-macOS-x64.dmg
-            release/COSMOS-Bio-CNS-macOS-x64.app.zip
+            release/COSMOS-Bio-CNS-macOS-arm64.dmg
+            release/COSMOS-Bio-CNS-macOS-arm64.app.zip
           if-no-files-found: error
 
   android:
@@ -229,7 +230,7 @@ jobs:
             gh release create "$RELEASE_TAG" \
               --target "$GITHUB_SHA" \
               --title "COSMOS Bio/CNS v0.1.0" \
-              --notes "Verified v0.1.0 platform release: Windows installer + portable EXE, macOS DMG + app bundle, Android APK, iOS Simulator app build, Python wheel/source package, and SHA-256 checksums. iOS physical-device/App Store signing and macOS notarization require the distributor's Apple credentials."
+              --notes "Verified v0.1.0 platform release: Windows installer + portable EXE, macOS Apple Silicon DMG + app bundle, Android APK, iOS Simulator app build, Python wheel/source package, and SHA-256 checksums. iOS physical-device/App Store signing and macOS notarization require the distributor's Apple credentials."
           fi
           mapfile -d '' files < <(find release-bundle -type f -print0)
           gh release upload "$RELEASE_TAG" "${files[@]}" --clobber
