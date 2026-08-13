@@ -2,7 +2,7 @@ name: Platform Builds
 
 on:
   push:
-    branches: [main, agent/platform-apps-release]
+    branches: [main]
   pull_request:
 
 permissions:
@@ -225,6 +225,7 @@ jobs:
       - name: Create or refresh v0.1.0 release
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
           if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release create "$RELEASE_TAG" \
