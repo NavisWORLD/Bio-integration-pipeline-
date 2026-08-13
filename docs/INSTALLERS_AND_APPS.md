@@ -15,12 +15,12 @@ The desktop application runs the repository's actual `PushBioAdapter -> BioFusio
 
 ## macOS
 
-GitHub Actions builds a native `.app` bundle around the same desktop runtime and packages it in a DMG.
+GitHub Actions builds a native Apple Silicon `.app` bundle around the same desktop runtime and packages it in a DMG.
 
 Release artifacts:
 
-- `COSMOS-Bio-CNS-macOS-x64.dmg`
-- `COSMOS-Bio-CNS-macOS-x64.app.zip`
+- `COSMOS-Bio-CNS-macOS-arm64.dmg`
+- `COSMOS-Bio-CNS-macOS-arm64.app.zip`
 
 The CI build is ad-hoc signed so its bundle integrity is checked. It is not Apple-notarized. Public distribution without Gatekeeper warnings requires an Apple Developer ID certificate and notarization credentials.
 
