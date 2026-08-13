@@ -1,0 +1,1 @@
+{"name":"@navisworld/cosmos-synapse","version":"0.2.0","type":"module","description":"Dependency-free COSMOS synaptic state kernel for JavaScript and TypeScript","license":"Apache-2.0","exports":"./index.js","types":"./index.d.ts","scripts":{"test":"node test.mjs"}}

@@ -1,0 +1,60 @@
+name: Cross-Language SDK
+
+on:
+  push:
+    branches: [main, agent/cross-language-synapse-sdk]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  native-linux:
+    name: Rust C++ Go JS Java C# parity
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Toolchains
+        run: |
+          python --version
+          cargo --version
+          cmake --version
+          g++ --version
+          go version
+          node --version
+          javac -version
+          dotnet --version
+      - name: Python golden vector
+        run: |
+          python -m pip install -e .
+          python -m unittest tests.test_synapse -v
+      - name: Rust
+        run: cargo test --manifest-path sdk/rust/Cargo.toml --all-targets
+      - name: C++ and C ABI
+        run: |
+          cmake -S sdk/cpp -B build/cpp -DCMAKE_BUILD_TYPE=Release
+          cmake --build build/cpp --config Release --parallel 2
+          ctest --test-dir build/cpp --output-on-failure
+      - name: Go
+        working-directory: sdk/go
+        run: go test ./...
+      - name: JavaScript TypeScript runtime
+        working-directory: sdk/javascript
+        run: npm test
+      - name: Java JVM
+        run: |
+          mkdir -p build/java
+          javac -d build/java sdk/java/src/main/java/world/navis/cosmos/Synapse.java sdk/java/src/test/java/world/navis/cosmos/GoldenTest.java
+          java -cp build/java world.navis.cosmos.GoldenTest
+      - name: C# .NET
+        run: dotnet run --project sdk/csharp/CosmosSynapse.csproj --configuration Release
+
+  swift:
+    name: Swift parity
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Swift package tests
+        run: swift test --package-path sdk/swift

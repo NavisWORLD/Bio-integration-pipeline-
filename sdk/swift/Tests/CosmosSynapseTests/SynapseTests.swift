@@ -1,0 +1,3 @@
+import XCTest
+@testable import CosmosSynapse
+final class SynapseTests:XCTestCase{func testGoldenVector()throws{let g=[0.02891876766114646,-0.02220725520372799,0.04791912723131752,-0.01459072664788153,0.0025653072604511205,0.012620779875725187,-0.046233655674311015,0.0228828972723213,-0.032941984868177496,0.002413860648239461,0.024589940949515134,-0.02129692995842166];let s=try SynapseState();let u=try s.update(features:[SynapticFeature(baselineDelta:0.5,quality:0.9),SynapticFeature(baselineDelta:-0.25,quality:0.8)],confidence:0.85);for i in g.indices{XCTAssertEqual(u.vector[i],g[i],accuracy:1e-12)}}}

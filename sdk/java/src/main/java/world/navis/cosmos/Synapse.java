@@ -1,0 +1,8 @@
+package world.navis.cosmos;
+public final class Synapse{
+ public static final double PHASE_STEP=0.61803398875;private Synapse(){}
+ public record Feature(double baselineDelta,double quality){public Feature{if(!Double.isFinite(baselineDelta)||!Double.isFinite(quality)||quality<0||quality>1)throw new IllegalArgumentException("invalid feature");}}
+ public record Update(double[] vector,long revision,double confidence){}
+ public static final class State{private final int dimensions;private final double leak,inputGain;private double[] vector;private long revision;public State(){this(12,0.88,0.12);}public State(int dimensions,double leak,double inputGain){if(dimensions<=0)throw new IllegalArgumentException("dimensions must be positive");if(!Double.isFinite(leak)||leak<0||leak>=1)throw new IllegalArgumentException("leak must be in [0,1)");if(!Double.isFinite(inputGain)||inputGain<0)throw new IllegalArgumentException("inputGain must be non-negative");this.dimensions=dimensions;this.leak=leak;this.inputGain=inputGain;this.vector=new double[dimensions];}
+ public Update update(Feature[] features,double confidence){if(!Double.isFinite(confidence)||confidence<0||confidence>1)throw new IllegalArgumentException("confidence must be in [0,1]");revision++;if(features.length==0)return new Update(vector.clone(),revision,0);double[] inputs=new double[features.length];for(int i=0;i<features.length;i++)inputs[i]=Math.tanh(features[i].baselineDelta())*features[i].quality();double[] next=new double[dimensions];for(int i=0;i<dimensions;i++){double phase=Math.sin((i+1)*PHASE_STEP);double value=leak*vector[i]+inputGain*inputs[i%inputs.length]*phase;next[i]=Math.max(-1,Math.min(1,value));}vector=next;return new Update(next.clone(),revision,confidence);}}
+}
