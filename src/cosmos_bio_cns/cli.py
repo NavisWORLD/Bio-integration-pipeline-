@@ -41,8 +41,15 @@ def cmd_verify(args: argparse.Namespace) -> int:
 def cmd_serve(args: argparse.Namespace) -> int:
     from cosmos_bio_cns.server import LocalCNSServer
 
-    server = LocalCNSServer(host=args.host, port=args.port, db=args.db)
-    print(f"COSMOS Bio/CNS local bridge listening on http://{args.host}:{args.port}")
+    server = LocalCNSServer(
+        host=args.host,
+        port=args.port,
+        db=args.db,
+        allow_remote=args.allow_remote,
+    )
+    print(f"COSMOS Bio/CNS local bridge listening on http://{args.host}:{server.port}")
+    if args.allow_remote:
+        print("WARNING: remote binding explicitly enabled; the reference bridge has no authentication")
     print("POST /v1/observe | GET /v1/state | GET /health | GET /v1/ledger/verify")
     try:
         server.serve_forever()
@@ -65,6 +72,11 @@ def main() -> int:
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
     serve.add_argument("--db", default="cosmos_bio_cns.sqlite3")
+    serve.add_argument(
+        "--allow-remote",
+        action="store_true",
+        help="explicitly permit a non-loopback bind; reference bridge has no authentication",
+    )
     serve.set_defaults(func=cmd_serve)
     args = parser.parse_args()
     return int(args.func(args))

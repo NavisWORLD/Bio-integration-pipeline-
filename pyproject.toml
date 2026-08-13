@@ -35,3 +35,6 @@ Research = "https://doi.org/10.5281/zenodo.17574447"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+cosmos_bio_cns = ["py.typed", "schemas/*.json"]

@@ -6,13 +6,13 @@ from cosmos_bio_cns.models import BioFeature, BioObservation, FusionFrame
 
 
 class BioFusionEngine:
-    """Normalizes observations against per-subject/channel baselines and builds a fusion frame."""
+    """Normalize consented observations and build a quality-gated fusion frame."""
 
     def __init__(self, *, min_quality: float = 0.5, alpha: float = 0.05, window_ms: int = 1000) -> None:
         self.min_quality = min_quality
         self.alpha = alpha
         self.window_ms = window_ms
-        self._baselines: dict[tuple[str, str], RunningBaseline] = defaultdict(
+        self._baselines: dict[tuple[str, str, str, str], RunningBaseline] = defaultdict(
             lambda: RunningBaseline(alpha=self.alpha)
         )
 
@@ -22,9 +22,15 @@ class BioFusionEngine:
         accepted = 0
 
         for obs in observations:
+            if obs.consent is not None and not obs.consent.bio_processing:
+                continue
             if obs.quality < self.min_quality:
                 continue
-            baseline = self._baselines[(obs.subject_id, obs.channel)]
+
+            # Baselines must never blend different sensors or units merely
+            # because they happen to reuse the same channel label.
+            baseline_key = (obs.subject_id, obs.sensor, obs.channel, obs.unit)
+            baseline = self._baselines[baseline_key]
             delta = baseline.update(obs.value)
             features.append(
                 BioFeature(

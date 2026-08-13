@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/NavisWORLD/Bio-integration-pipeline-/schemas/bio_observation.schema.json",
+  "title": "COSMOS Bio Observation",
+  "type": "object",
+  "required": ["sensor", "channel", "value", "unit", "quality"],
+  "properties": {
+    "sensor": {"type": "string", "minLength": 1},
+    "channel": {"type": "string", "minLength": 1},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "quality": {"type": "number", "minimum": 0, "maximum": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "sequence": {"type": "integer", "minimum": 0},
+    "subject_id": {"type": "string"},
+    "device_id": {"type": "string"},
+    "metadata": {"type": "object"},
+    "consent": {
+      "type": "object",
+      "required": ["session_id"],
+      "properties": {
+        "session_id": {"type": "string"},
+        "bio_processing": {"type": "boolean"},
+        "raw_retention": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
