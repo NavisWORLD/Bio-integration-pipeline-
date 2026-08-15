@@ -1,15 +1,25 @@
-# Documentation and Paper License
+# Documentation and Paper Rights Notice
 
-Unless a file states otherwise, the repository-authored material under `docs/` and `paper/` is licensed by Cory Shane Davis under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+Copyright © 2026 Cory Shane Davis / NavisWORLD. All rights reserved in newly authored or materially revised repository-authored documentation and paper material distributed under this notice on or after 2026-08-15, unless a file expressly states different terms.
 
-License: https://creativecommons.org/licenses/by/4.0/
+## Current distribution
 
-You may share and adapt that material, including commercially, provided you give appropriate credit, provide a link to the license, and indicate whether changes were made. No additional restrictions may be applied that prevent others from exercising the permissions granted by the license.
+For newly authored or materially revised Cory-owned material under `docs/` and `paper/`, public availability does not itself grant permission to copy, adapt, republish, translate, sell, commercialize, or prepare derivative works except where applicable law independently permits it or a separate written agreement signed by Cory Shane Davis expressly authorizes it.
 
-This documentation license does **not** change the software license. Source code and software configuration in this repository remain licensed under the Apache License 2.0 as described in `LICENSE`.
+Commercial publication, paid training material, commercial AI/ML ingestion, commercial derivative documentation, and commercial incorporation of covered documentation require separate written authorization.
 
-Third-party works, trademarks, datasets, publications, quoted material, and linked resources remain subject to their own rights and licenses and are not relicensed by this file.
+## Historical CC BY 4.0 boundary
 
-Suggested attribution:
+Repository-authored documentation and companion-paper material released in the 0.1.x and 0.2.x generations was offered under the Creative Commons Attribution 4.0 International License (CC BY 4.0), unless a file stated otherwise.
 
-> Cory Shane Davis, COSMOS Bio/CNS Integration Pipeline, https://github.com/NavisWORLD/Bio-integration-pipeline-, companion to the CST research lineage, foundational DOI 10.5281/zenodo.17574447.
+Those historical grants are not revoked. A person who validly received an earlier CC BY 4.0 copy may continue to exercise the rights granted by CC BY 4.0 for that copy, subject to its terms.
+
+The pre-boundary repository state is recorded in `LICENSE_HISTORY.md` at commit `f27d258d0434d7b28774bf27e979cdd88da6657e`.
+
+## Boundaries
+
+This notice does not claim copyright in facts, abstract ideas, methods, systems, scientific principles, or discoveries. It protects only copyrightable authorship to the extent provided by law.
+
+Third-party publications, trademarks, datasets, quoted material, linked resources, and other third-party works remain subject to their own rights and licenses.
+
+Foundational research provenance: Cory Shane Davis, 12-Dimensional Cosmic Synapse Theory, DOI `10.5281/zenodo.17574447`.
