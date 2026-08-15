@@ -1,8 +1,8 @@
 [package]
 name = "cosmos-synapse"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
-license = "Apache-2.0"
+license-file = "../../LICENSE"
 description = "Dependency-free COSMOS Bio/CNS synaptic state kernel"
 repository = "https://github.com/NavisWORLD/Bio-integration-pipeline-"
 
