@@ -1,63 +1,55 @@
 # Distribution and Reuse Guide
 
-## Code license
+## Current rights boundary
 
-The Python source and software configuration in this repository are released under the Apache License 2.0.
+Beginning with the 0.3.x rights-boundary generation on 2026-08-15, newly authored or materially revised Cory Shane Davis / NavisWORLD material distributed under the repository `LICENSE` is rights reserved unless a file expressly states different terms.
 
-You may use, modify, redistribute, and commercially deploy the code subject to the license terms. Preserve the `LICENSE` file, copyright notices, modification notices where required, and any applicable `NOTICE` material with redistributed copies.
+Public source visibility is not a general permission to copy, modify, port, translate, distribute, sublicense, commercialize, host, or incorporate covered current material into another product. Additional rights require a separate written agreement where the `LICENSE` says so.
 
-Apache-2.0 was selected for the reusable library because it is permissive and includes an explicit patent-license framework for contributions. This guide is not legal advice; organizations should have qualified counsel review their own distribution obligations when needed.
+## Historical software license
 
-## Documentation and companion-paper license
+The 0.1.x and 0.2.x software/configuration releases were distributed under Apache License 2.0. Copies validly obtained under Apache-2.0 retain the rights granted by Apache-2.0, including the historical copyright and patent permissions applicable to those copies.
 
-Unless a file states otherwise, repository-authored material under `docs/` and `paper/` is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0), as recorded in `LICENSE-DOCS.md`.
+Those grants are not revoked by the 0.3.x rights boundary. See `LICENSE_HISTORY.md` for the pre-boundary commit record.
 
-That means downstream users may share and adapt the repository-authored documentation and companion paper, including commercially, with appropriate attribution, a license reference, and an indication of changes.
+## Historical documentation and companion-paper license
 
-Third-party publications, trademarks, datasets, quoted material, external links, and other third-party works are not relicensed by this repository.
+Repository-authored documentation and companion-paper material in the 0.1.x and 0.2.x generations was offered under Creative Commons Attribution 4.0 International (CC BY 4.0), unless a file stated otherwise.
 
-## What downstream projects should keep
+Valid historical CC BY 4.0 grants remain in force for those copies. Newly authored or materially revised documentation distributed under the current rights notice is governed by `LICENSE-DOCS.md` unless a file states different terms.
 
-- `LICENSE` for covered software;
-- `LICENSE-DOCS.md` when redistributing covered repository-authored documentation/paper material;
-- applicable `NOTICE` entries;
-- notices identifying modified files where the Apache-2.0 terms require them;
-- provenance/citation to this repository when substantially derived from it;
-- the foundational research citation where CST-specific architecture or terminology is discussed;
-- safety/privacy boundaries if handling human biosignal data.
+## Commercial distribution of current covered material
 
-Suggested repository attribution:
+Commercial, enterprise, OEM, hosted-service, paid deployment, commercial research, product integration, or commercial AI/ML use of current covered material requires separate written authorization from Cory Shane Davis unless applicable law independently permits the specific use.
 
-> Cory Shane Davis, COSMOS Bio/CNS Integration Pipeline, https://github.com/NavisWORLD/Bio-integration-pipeline-, foundational CST DOI 10.5281/zenodo.17574447.
+The current `LICENSE` grants no new public patent license.
 
-## PyPI-style build
+## Third-party material
+
+Third-party code, SDKs, cloud services, models, datasets, publications, trademarks, and dependencies retain their own licenses and terms. The current rights reservation does not relicense them.
+
+## Human data
+
+No software or documentation license grants permission to collect, process, retain, redistribute, sell, or disclose private biometric or physiological data. Consent, privacy, security, medical, research, and jurisdiction-specific obligations are separate.
+
+## Package and application builds
+
+The repository remains buildable as an engineering reference. Building a package or application for local evaluation does not expand the rights granted by the current `LICENSE`.
+
+Python build:
 
 ```bash
 python -m pip install --upgrade build
 python -m build
-```
-
-Validate artifacts:
-
-```bash
-python -m pip install --upgrade twine
 python -m twine check dist/*
 ```
 
-Then publish only from an account or organization authorized to use the chosen package name.
+Before publishing a package, installer, mobile app, hosted service, fork, translated SDK, or derivative distribution, determine which historical or current license governs the exact material involved and obtain any additional authorization required.
 
-## Vendoring
+## Provenance
 
-Downstream applications may vendor `src/cosmos_bio_cns` directly. Keep the Apache-2.0 license and applicable notices adjacent to the vendored code.
+Suggested citation for factual provenance:
 
-## Container/mobile/native projects
+> Cory Shane Davis, COSMOS Bio/CNS Integration Pipeline, https://github.com/NavisWORLD/Bio-integration-pipeline-, foundational CST DOI 10.5281/zenodo.17574447.
 
-The Python package can act as a local service or reference implementation. Native iOS/Android/C++/Rust implementations should preserve the event schemas and adapter/CNS boundaries when interoperability is desired, and must not copy device permissions, user secrets, or credentials into shared source.
-
-## Human data
-
-Do not distribute raw biometric datasets merely because the software is open source. Dataset consent, privacy, retention, jurisdiction, institutional review requirements, and other applicable obligations are separate from the software and documentation licenses.
-
-## Release validation
-
-The repository includes `.github/workflows/ci.yml`, which runs supported-Python tests, source compilation, CLI smoke tests, package builds, and distribution metadata validation. See `docs/RELEASE_READINESS.md` for the release-readiness scope.
+Citation is not a substitute for permission when permission is required.
