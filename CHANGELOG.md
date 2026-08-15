@@ -1,6 +1,17 @@
 # Changelog
 
-## 0.2.0 — 2026-08-13
+## 0.3.0 - 2026-08-15
+
+Prospective rights and commercialization boundary release:
+
+- established the Cory Davis Bio/CNS Research Source Rights Reservation v1.0 for newly authored or materially revised Cory-owned material from this generation forward;
+- preserved the historical Apache-2.0 software grants and CC BY 4.0 documentation grants applicable to earlier copies and releases;
+- added `LICENSE_HISTORY.md` with the pre-boundary commit record;
+- aligned Python, Rust, JavaScript, citation, contribution, documentation, and commercial-rights metadata with the new boundary;
+- reserved patent rights rather than granting a new public patent license for current covered material;
+- retained all third-party license and human-data boundaries.
+
+## 0.2.0 - 2026-08-13
 
 Cross-language synaptic interoperability release:
 
@@ -14,7 +25,7 @@ Cross-language synaptic interoperability release:
 - added automated cross-language compilation/parity validation;
 - advanced package and citation metadata to v0.2.0.
 
-## 0.1.0 — 2026-08-12
+## 0.1.0 - 2026-08-12
 
 Initial public extraction of the COSMOS/CST bio/CNS integration pipeline:
 
