@@ -1,11 +1,23 @@
-# Commercial Rights & DOI Notice
+# Commercial Rights and DOI Notice
 
-Copyright © 2026 Cory Davis / NavisWORLD.
+Copyright © 2026 Cory Shane Davis / NavisWORLD.
 
-Cory-owned original material not governed by another controlling license is available for noncommercial use under PolyForm Noncommercial 1.0.0. Commercial use requires a separate signed agreement with Cory Davis / NavisWORLD. Hiring or contracting alone does not transfer ownership or commercial rights unless a signed agreement expressly grants them.
+## Current commercial boundary
 
-Related COSMOS/CST research: DOI 10.5281/zenodo.17574447 — https://zenodo.org/records/17574447
+Newly authored or materially revised Cory-owned material distributed under the repository's current rights reservation is not offered under a general public commercial license.
 
-Third-party material and earlier versions remain governed by their valid existing licenses. Prior MIT, Apache, GPL, Creative Commons, or other grants are not revoked.
+Commercial, enterprise, OEM, hosted-service, paid deployment, commercial research, product integration, commercial AI/ML development, or other commercial exploitation of covered current material requires a separate written agreement signed by Cory Shane Davis and the counterparty.
 
-Commercial licensing: contact @NavisWORLD.
+Hiring, employment, contracting, consulting, sponsorship, collaboration, downloads, forks, stars, pull requests, emails, or verbal discussions do not by themselves transfer ownership or grant commercial rights.
+
+## Historical licenses remain valid
+
+Earlier software copies distributed under Apache-2.0 and earlier repository-authored documentation/paper copies distributed under CC BY 4.0 remain governed by those valid historical grants. Those prior grants are not revoked. See `LICENSE_HISTORY.md`.
+
+## Patent and other rights
+
+The current rights reservation grants no patent license. Patent, trademark, data, and other rights are separate from copyright and require their own analysis or agreement where applicable.
+
+Related COSMOS/CST research provenance: DOI `10.5281/zenodo.17574447`.
+
+Commercial licensing inquiries: Cory Shane Davis / @NavisWORLD.
