@@ -1,13 +1,12 @@
 cff-version: 1.2.0
-message: "Please cite this repository and the foundational CST deposit when using CST-specific architecture or terminology."
+message: "Please cite this repository and the foundational CST deposit when discussing this software lineage. Rights to use the software are governed by the repository LICENSE."
 title: "COSMOS Bio/CNS Integration Pipeline"
 type: software
 authors:
   - family-names: Davis
     given-names: Cory Shane
-version: 0.2.0
-date-released: 2026-08-13
-license: Apache-2.0
+version: 0.3.0
+date-released: 2026-08-15
 repository-code: "https://github.com/NavisWORLD/Bio-integration-pipeline-"
 url: "https://github.com/NavisWORLD/Bio-integration-pipeline-"
 preferred-citation:
