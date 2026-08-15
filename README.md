@@ -3,35 +3,46 @@
 [![CI](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml/badge.svg)](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml)
 [![Cross-Language SDK](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/cross-language.yml/badge.svg)](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/cross-language.yml)
 
-A local-first, open-source Bio/CNS integration toolkit with a Python runtime, deterministic synaptic state kernel, cross-language SDKs, persistent event ledger, optional cloud heartbeat, desktop installers, and native mobile clients.
+A local-first, source-available Bio/CNS integration research and engineering toolkit with a Python runtime, deterministic synaptic state kernel, cross-language SDKs, persistent event ledger, optional cloud heartbeat, desktop installers, and native mobile clients.
 
 **Author:** Cory Shane Davis  
 **Foundational CST research DOI:** https://doi.org/10.5281/zenodo.17574447  
-**Code license:** Apache-2.0  
-**Repository-authored docs/paper license:** CC BY 4.0
+**Current generation:** 0.3.0  
+**Current rights:** Cory Davis Bio/CNS Research Source Rights Reservation v1.0  
+**Historical boundary:** 0.1.x and 0.2.x software were Apache-2.0; repository-authored docs/paper were CC BY 4.0 unless otherwise stated. Those valid historical grants remain intact.
 
 > Engineering/research toolkit only. Not a medical device, diagnostic system, consciousness detector, emotion oracle, or proof that a biometric measurement has one fixed psychological meaning.
 
+## Rights and provenance first
+
+This repository is public for inspection, evaluation, citation, provenance, and controlled research visibility. Public availability does **not** mean current newly authored or materially revised Cory-owned material is offered under a general reuse license.
+
+The current rights boundary begins 2026-08-15. Newly authored or materially revised covered material is governed by `LICENSE` unless a file expressly states otherwise. Historical Apache-2.0 and CC BY 4.0 copies keep the rights those licenses granted. The chronology is recorded in `LICENSE_HISTORY.md` rather than rewritten.
+
+The current rights notice grants no new public patent license. Commercial, enterprise, OEM, hosted-service, paid deployment, commercial research, product integration, or commercial AI/ML use of current covered material requires separate written authorization where the `LICENSE` states so.
+
+Copyright does not itself protect abstract ideas, mathematical principles, methods, systems, or discoveries. Independent implementation of unprotected ideas may be lawful unless another right applies. The protected source code, documentation, schemas, diagrams, specifications, tests, examples, and other copyrightable expression remain subject to the rights governing the exact version or copy involved.
+
 ## Release status
 
-**v0.2.0 cross-language reference implementation.**
+**v0.3.0 rights-boundary generation.** The engineering implementation remains based on the v0.2.0 cross-language reference release while the repository now has an explicit prospective commercial and IP boundary for new material.
 
 The repository includes Python 3.10-3.12 CI, package validation, regression tests, native cross-language parity tests, platform builds, schemas, manuals, security guidance, licensing, citation/provenance metadata, Windows/macOS packaging, Android/iOS clients, and a versioned synaptic wire contract.
 
-See `docs/RELEASE_READINESS.md` for the exact engineering-certification boundary.
+See `docs/RELEASE_READINESS.md` for the engineering-certification boundary of the v0.2.0 reference implementation and `LICENSE_HISTORY.md` for the rights boundary.
 
 ## Start here
 
-1. `docs/QUICKSTART.md` - run the local loop;
-2. `docs/API_REFERENCE.md` - Python/CLI/HTTP interfaces;
-3. `docs/CROSS_LANGUAGE_SDK.md` - Rust, C++, C, Go, JS/TS, JVM, .NET, Swift, and universal binding routes;
-4. `sdk/spec/SYNAPSE_WIRE_V1.md` - canonical synaptic equation and behavior;
-5. `docs/ARCHITECTURE.md` - complete pipeline;
-6. `docs/ADAPTER_AUTHORING.md` - connect a sensor/host app;
-7. `docs/INTEROPERABILITY.md` - language-neutral runtime bridge;
-8. `docs/AZURE_HEARTBEAT.md` - optional cloud continuity/reconciliation;
-9. `docs/TEACHER_MANUAL.md` - labs and teaching path;
-10. `docs/RESEARCH_BOUNDARIES.md` - explicit claim boundaries.
+1. `LICENSE` - current rights reservation;
+2. `LICENSE_HISTORY.md` - historical Apache/CC boundary;
+3. `LICENSE-DOCS.md` - documentation/paper rights;
+4. `COMMERCIAL_RIGHTS.md` - commercial licensing boundary;
+5. `docs/QUICKSTART.md` - run the local loop;
+6. `docs/API_REFERENCE.md` - Python/CLI/HTTP interfaces;
+7. `docs/CROSS_LANGUAGE_SDK.md` - Rust, C++, C, Go, JS/TS, JVM, .NET, Swift, and universal binding routes;
+8. `sdk/spec/SYNAPSE_WIRE_V1.md` - canonical synaptic equation and behavior;
+9. `docs/ARCHITECTURE.md` - complete pipeline;
+10. `docs/RESEARCH_BOUNDARIES.md` - explicit scientific claim boundaries.
 
 ## Core loop
 
@@ -63,7 +74,7 @@ project behavior / memory / optional cloud reconciliation
 - person-relative EWMA baselines isolated by subject, sensor, channel, and unit;
 - quality-gated multimodal fusion;
 - deterministic local 12D CNS reference engine;
-- public dependency-free Python synaptic kernel;
+- Python synaptic kernel;
 - first-party Rust, C++17/C ABI, Go, JavaScript/TypeScript, Java/JVM, C#/.NET, and Swift synaptic SDKs;
 - Kotlin compatibility through the Java/JVM SDK;
 - universal fallback through C FFI or loopback HTTP/JSON;
@@ -85,6 +96,8 @@ python -m venv .venv
 python -m pip install -e .
 ```
 
+Building or running the current public source for evaluation does not expand the rights granted by `LICENSE`.
+
 Optional Azure support:
 
 ```bash
@@ -104,7 +117,7 @@ state = cosmos_12d_step(
 print(state)
 ```
 
-Equivalent parity-tested implementations live under `sdk/`.
+Equivalent implementations live under `sdk/`. Rights to copy, port, redistribute, or commercialize an SDK depend on the exact version and license history applicable to that copy.
 
 ## 30-second runtime demo
 
@@ -130,15 +143,11 @@ finally:
 
 The first accepted sample establishes that stream's baseline, so baseline delta is expected to be zero until subsequent deviation.
 
-## Use it from any language
+## Cross-language architecture
 
-Choose either:
+The repository contains implementation surfaces for Python, Rust, C++/C, Go, JavaScript/TypeScript, Java/JVM, C#/.NET, and Swift, plus HTTP/JSON and C-ABI interoperability paths.
 
-- **native kernel:** `sdk/rust`, `sdk/cpp`, `sdk/go`, `sdk/javascript`, `sdk/java`, `sdk/csharp`, `sdk/swift`;
-- **C ABI:** bind `cosmos_synapse_c.h` from C, Zig, Fortran, Julia, R, Ruby, PHP, LuaJIT, Haskell, Nim, Objective-C, and similar runtimes;
-- **HTTP/JSON:** start `cosmos-bio-cns serve --host 127.0.0.1 --port 8765` and POST observations to `/v1/observe`.
-
-The HTTP reference bridge is unauthenticated and loopback-only by default. `--allow-remote` is a development escape hatch, not production security.
+These technical interfaces describe interoperability. They do not create licensing permission beyond the rights governing the exact source material involved.
 
 ## Add your own sensor
 
@@ -150,15 +159,15 @@ class MySensor:
     def disconnect(self): ...
 ```
 
-Adapters report observations, not diagnoses or emotional conclusions. Open-source code rights never override a human subject's data permissions.
+Adapters report observations, not diagnoses or emotional conclusions. Software rights never override a human subject's data permissions.
 
 ## Local-first design
 
-The CNS loop works without cloud services. Cloud bridges are optional sinks/reconciliation extensions. Keep credentials outside source control and prefer managed identities/secret stores where available.
+The CNS loop works without cloud services. Cloud bridges are optional sinks/reconciliation extensions. Keep credentials outside source control and prefer managed identities or secret stores where available.
 
 ## Research boundaries
 
-- 12D/42D/54D are computational state representations in this software lineage, not literal extra spacetime claims;
+- 12D/42D/54D are computational state representations in this software lineage, not literal extra-spacetime claims;
 - raw camera/audio retention should be minimized;
 - a software heartbeat is a continuity/scheduling mechanism, not biological life;
 - historical sensory-conditioning results include bounded/null findings, so no universal performance benefit is claimed;
@@ -200,10 +209,16 @@ GitHub Actions additionally compiles the JVM and .NET implementations and valida
 
 ## Citation
 
-Please cite the software repository and foundational CST deposit. The DOI is research lineage; this repository does not claim the DOI was issued specifically for this software package.
+Please cite the software repository and foundational CST deposit when discussing this lineage. Citation establishes provenance and attribution. Citation does not substitute for permission when permission is required.
 
 ## License and data boundary
 
-Software/configuration: Apache License 2.0. Repository-authored documentation/paper text: CC BY 4.0 unless stated otherwise. Open-source software rights do not grant permission to redistribute private human biosignal data.
+**Current newly authored/materially revised Cory-owned material:** governed by `LICENSE`, the Cory Davis Bio/CNS Research Source Rights Reservation v1.0, unless a file states otherwise.
 
-See `LICENSE`, `LICENSE-DOCS.md`, `NOTICE`, `SECURITY.md`, `CONTRIBUTING.md`, and `docs/DISTRIBUTION.md`.
+**Historical software copies:** 0.1.x and 0.2.x were distributed under Apache-2.0. Their valid historical grants remain intact.
+
+**Historical repository-authored documentation/paper copies:** 0.1.x and 0.2.x were offered under CC BY 4.0 unless a file stated otherwise. Their valid historical grants remain intact.
+
+**Human data:** no code or documentation license grants rights to private biometric, physiological, medical, audio, image, or other consent-sensitive data.
+
+See `LICENSE`, `LICENSE_HISTORY.md`, `LICENSE-DOCS.md`, `COMMERCIAL_RIGHTS.md`, `NOTICE`, `SECURITY.md`, `CONTRIBUTING.md`, and `docs/DISTRIBUTION.md`.
