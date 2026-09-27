@@ -30,3 +30,7 @@ Third-party code, dependencies, SDKs, datasets, models, publications, trademarks
 ## Purpose
 
 The purpose of this history is provenance and clarity: preserve the old grants exactly as they existed while making the rights governing new generations explicit.
+
+## Proposed open-source restoration (2026-09-26)
+
+Once a release adopts the new root Apache-2.0 `LICENSE`, Cory-owned original software and configuration distributed in that revision are licensed Apache-2.0. Cory-owned original `docs/` and `paper/` materials covered by `LICENSE-DOCS.md` are offered under CC BY 4.0, unless individually marked otherwise. This prospective revision replaces the source-available boundary for those covered **new distributions only**; it does not retroactively revoke or rewrite earlier versions. Third-party and privacy-sensitive data remain subject to their separate rights.

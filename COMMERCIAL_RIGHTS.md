@@ -1,23 +1,9 @@
-# Commercial Rights and DOI Notice
+# Bio/CNS commercial use — open-source generation
 
-Copyright © 2026 Cory Shane Davis / NavisWORLD.
+Copyright 2026 Cory Shane Davis / NavisWORLD.
 
-## Current commercial boundary
+Original Cory-owned software/configuration distributed under the current root Apache-2.0 LICENSE can be used commercially under Apache-2.0 without separate permission or royalties. Cory-owned documentation and paper portions expressly covered by LICENSE-DOCS.md are distributed under CC BY 4.0 and allow commercial use with its attribution and other conditions. Everyone receiving those licensed versions has the same licensed commercial permissions; the copyright holder may also sell software, services and support.
 
-Newly authored or materially revised Cory-owned material distributed under the repository's current rights reservation is not offered under a general public commercial license.
+Previous releases remain governed by the licenses validly granted for those copies. Third-party dependencies, models, sensor recordings, biomedical data, cloud credentials, media and material marked with separate terms are **not** relicensed. This file does not grant trademarks or patent rights beyond the applicable licenses.
 
-Commercial, enterprise, OEM, hosted-service, paid deployment, commercial research, product integration, commercial AI/ML development, or other commercial exploitation of covered current material requires a separate written agreement signed by Cory Shane Davis and the counterparty.
-
-Hiring, employment, contracting, consulting, sponsorship, collaboration, downloads, forks, stars, pull requests, emails, or verbal discussions do not by themselves transfer ownership or grant commercial rights.
-
-## Historical licenses remain valid
-
-Earlier software copies distributed under Apache-2.0 and earlier repository-authored documentation/paper copies distributed under CC BY 4.0 remain governed by those valid historical grants. Those prior grants are not revoked. See `LICENSE_HISTORY.md`.
-
-## Patent and other rights
-
-The current rights reservation grants no patent license. Patent, trademark, data, and other rights are separate from copyright and require their own analysis or agreement where applicable.
-
-Related COSMOS/CST research provenance: DOI `10.5281/zenodo.17574447`.
-
-Commercial licensing inquiries: Cory Shane Davis / @NavisWORLD.
+See LICENSE, LICENSE-DOCS.md and LICENSE_HISTORY.md. Research lineage DOI: 10.5281/zenodo.17574447.

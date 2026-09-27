@@ -8,7 +8,7 @@ version = "0.3.0"
 description = "Local-first bio-signal to CNS integration toolkit with cross-language synaptic SDKs derived from the COSMOS/CST engineering lineage."
 readme = "README.md"
 requires-python = ">=3.10"
-license = "LicenseRef-Cory-Davis-Bio-CNS-Rights-Reservation-1.0"
+license = "Apache-2.0"
 license-files = ["LICENSE", "LICENSE_HISTORY.md", "LICENSE-DOCS.md"]
 authors = [{name = "Cory Shane Davis"}]
 keywords = ["biosignals", "multimodal", "cns", "adaptive-state", "edge-ai", "cosmos", "cst", "rust", "cpp", "ffi"]

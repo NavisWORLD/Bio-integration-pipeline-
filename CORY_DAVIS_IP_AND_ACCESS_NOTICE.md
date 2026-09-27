@@ -1,3 +1,5 @@
+> **2026-09-26 proposed open-source update:** This notice was originally written for an earlier source-available generation. Apache-2.0 and CC BY 4.0 govern the identified original current-generation materials when this transition is adopted; historical grants remain intact. No earlier restriction in this notice limits the new open-source grants.
+
 # Cory Davis / NavisWORLD — Intellectual Property and Access Notice
 
 **Effective date:** 2026-08-14
@@ -6,7 +8,7 @@ Copyright © 2026 Cory Davis / NavisWORLD. All rights reserved in original mater
 
 This notice applies only to original copyrightable material owned by Cory Davis / NavisWORLD that is not already subject to another license. It does not relicense third-party material or revoke rights validly granted under an earlier license for an earlier copy or version.
 
-Public availability permits inspection, evaluation, citation, and the limited uses GitHub's Terms of Service or applicable law necessarily permit. Except for those limited rights, no permission is granted to copy, modify, distribute, publish, sublicense, sell, commercialize, host as a service, incorporate into another product, create derivative works from, or otherwise exploit covered original material. No permission is granted for commercial AI/ML training, fine-tuning, retrieval, evaluation, distillation, synthetic-data, embedding, or model-development use except where applicable law independently permits it or a separate written agreement expressly authorizes it.
+For prospective versions issued with the new Apache-2.0 root LICENSE, the covered Cory-owned original software is released under Apache-2.0; Cory-owned original docs and paper under LICENSE-DOCS.md are CC BY 4.0, subject to any separately marked terms. Those applicable licenses expressly grant reuse, modification, redistribution and commercial use under their conditions. No separate written permission is needed for those licensed uses. Third-party code, sensitive data, trademarks, separate patents beyond any express license grant and non-public material retain their respective terms.
 
 Any additional authorization must be in a separate written contract identifying the material and permitted scope and signed by Cory Davis and the counterparty. Email, DMs, issues, pull requests, stars, forks, downloads, verbal statements, or silence do not by themselves constitute additional permission. Cory Davis may require physical, in-person execution as a condition of granting permission.
 
