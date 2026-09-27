@@ -3,25 +3,21 @@
 [![CI](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml/badge.svg)](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/ci.yml)
 [![Cross-Language SDK](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/cross-language.yml/badge.svg)](https://github.com/NavisWORLD/Bio-integration-pipeline-/actions/workflows/cross-language.yml)
 
-A local-first, source-available Bio/CNS integration research and engineering toolkit with a Python runtime, deterministic synaptic state kernel, cross-language SDKs, persistent event ledger, optional cloud heartbeat, desktop installers, and native mobile clients.
+A local-first, open-source Bio/CNS integration research and engineering toolkit with a Python runtime, deterministic synaptic state kernel, cross-language SDKs, persistent event ledger, optional cloud heartbeat, desktop installers, and native mobile clients.
 
 **Author:** Cory Shane Davis  
 **Foundational CST research DOI:** https://doi.org/10.5281/zenodo.17574447  
 **Current generation:** 0.3.0  
-**Current rights:** Cory Davis Bio/CNS Research Source Rights Reservation v1.0  
+**Current software license in this proposed generation:** Apache-2.0 for Cory-owned code; CC BY 4.0 for original Cory-owned docs/paper unless marked otherwise.  
 **Historical boundary:** 0.1.x and 0.2.x software were Apache-2.0; repository-authored docs/paper were CC BY 4.0 unless otherwise stated. Those valid historical grants remain intact.
 
 > Engineering/research toolkit only. Not a medical device, diagnostic system, consciousness detector, emotion oracle, or proof that a biometric measurement has one fixed psychological meaning.
 
 ## Rights and provenance first
 
-This repository is public for inspection, evaluation, citation, provenance, and controlled research visibility. Public availability does **not** mean current newly authored or materially revised Cory-owned material is offered under a general reuse license.
+The source-code open-source transition is **prospective**: when adopted, current Cory-owned original software and configuration in this generation are licensed Apache-2.0 via [LICENSE](LICENSE). Cory-owned original documentation and companion paper material are licensed CC BY 4.0 under [LICENSE-DOCS.md](LICENSE-DOCS.md), subject to separately identified file and component terms. Both allow commercial reuse under their conditions; the owner retains copyright. Third-party code, medical/bio data, SDKs, photos, model weights, and datasets are **not** automatically relicensed. Historic rights-reserved and earlier Apache/CC BY generations remain documented in [LICENSE_HISTORY.md](LICENSE_HISTORY.md).
 
-The current rights boundary begins 2026-08-15. Newly authored or materially revised covered material is governed by `LICENSE` unless a file expressly states otherwise. Historical Apache-2.0 and CC BY 4.0 copies keep the rights those licenses granted. The chronology is recorded in `LICENSE_HISTORY.md` rather than rewritten.
-
-The current rights notice grants no new public patent license. Commercial, enterprise, OEM, hosted-service, paid deployment, commercial research, product integration, or commercial AI/ML use of current covered material requires separate written authorization where the `LICENSE` states so.
-
-Copyright does not itself protect abstract ideas, mathematical principles, methods, systems, or discoveries. Independent implementation of unprotected ideas may be lawful unless another right applies. The protected source code, documentation, schemas, diagrams, specifications, tests, examples, and other copyrightable expression remain subject to the rights governing the exact version or copy involved.
+This engineering research is not a medical device, diagnosis, or proof of any particular interpretation of biological signal data.
 
 ## Release status
 
